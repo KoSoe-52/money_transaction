@@ -57,10 +57,10 @@ class LedgerController extends Controller
                     foreach($request->title as $key=>$p)
                     {
                         
-                        if($request->hasFile('image')) {
+                        if($request->hasFile('image_url')) {
                             $file = $request->file('image_url')[$key];
                             $fileName = date('d-m-Y').'_'.time().'_'.$file->getClientOriginalName();
-                            $filePath = "/storage/".$file->storeAs('vouchers', $fileName, 'public');
+                            $filePath = "storage/".$file->storeAs('vouchers', $fileName, 'public');
                         }else
                         {
                             $filePath = NULL;

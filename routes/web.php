@@ -22,11 +22,14 @@ Auth::routes([
 ]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
-    Route::get("/dashboard",[App\Http\Controllers\DashboardController::class,'index'])->name("dashboard");
+    // Route::get("/dashboard",[App\Http\Controllers\DashboardController::class,'index'])->name("dashboard");
     Route::resource("ledgers",App\Http\Controllers\LedgerController::class);
-    Route::post("/users/addMoney",[App\Http\Controllers\UserController::class,'addMoney'])->name("addMoney");
+    Route::get("/users/{id}/profile",[App\Http\Controllers\UserController::class,'profile'])->name("users.profile");
+
 });
 Route::middleware(['admin'])->group(function () {
     Route::resource("users",App\Http\Controllers\UserController::class);
     Route::resource("categories",App\Http\Controllers\CategoryController::class);
+    Route::post("/users/addMoney",[App\Http\Controllers\UserController::class,'addMoney'])->name("addMoney");
+
 });

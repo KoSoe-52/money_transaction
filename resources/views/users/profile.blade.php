@@ -9,8 +9,10 @@
                 <div class="mt-3">
                     <h4>{{$user->username}}</h4>
                     <p class="text-secondary mb-1">{{ $user->point }}</p>
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addMoney"><i class="bx bx-dollar"></i> ငွေသွင်း</button>
-                </div>
+					@if(Auth::user()->role_id == 1)
+                    	<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addMoney"><i class="bx bx-dollar"></i> ငွေသွင်း</button>
+					@endif
+				</div>
             </div>
         </div>
     </div>

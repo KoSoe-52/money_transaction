@@ -19,7 +19,7 @@
                 @foreach($users as $key=>$user)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td><a href="{{ route('users.show',$user->id) }}">{{ $user->username }} </a></td>
+                        <td><a href="{{ route('users.profile',$user->id) }}">{{ $user->username }} </a></td>
                         <td>{{ $user->point }}</td>
                         <td>
                             @if($user->status == 0)

@@ -79,7 +79,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             if(Auth::check())
             {
-                return redirect("/dashboard");
+                return redirect("/ledgers");
             }else
             {
                 return redirect()->route('login')->with("status", "Incorrect username and password");

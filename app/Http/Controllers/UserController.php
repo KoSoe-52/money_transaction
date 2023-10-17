@@ -60,10 +60,14 @@ class UserController extends Controller
     public function show(User $user)
     {
 
-        $transactions = Transaction::where("user_id",$user->id)->orderBy("id","DESC")->get();
-        return view("users.show",compact("user","transactions"));
+        
     }
-
+    public function profile($id)
+    {
+        $transactions = Transaction::where("user_id",$id)->orderBy("id","DESC")->get();
+        $user = User::find($id);
+        return view("users.profile",compact("user","transactions"));
+    }
     /**
      * Show the form for editing the specified resource.
      */

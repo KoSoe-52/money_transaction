@@ -51,8 +51,8 @@ class DatabaseSeeder extends Seeder
                 'id' => 1,
                 'name'  =>'Admin',
                 'role_id' => 1,
-                'username' => 'admin',
-                'password' => Hash::make('password'),
+                'username' => 'aungkhaingnyein',
+                'password' => Hash::make('aung22655'),
                 'created_at' => now()->toDateTimeString(),
                 'updated_at' => now()->toDateTimeString()
             ),
@@ -61,19 +61,19 @@ class DatabaseSeeder extends Seeder
                 'name'  =>'Buyer',
                 'role_id' => 2,
                 'username' => 'buyer',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('buy098!@#'),
                 'created_at' => now()->toDateTimeString(),
                 'updated_at' => now()->toDateTimeString()
             ),
-            array(
-                'id' => 3,
-                'name'  =>'Department',
-                'role_id' => 3,
-                'username' => 'department',
-                'password' => Hash::make('password'),
-                'created_at' => now()->toDateTimeString(),
-                'updated_at' => now()->toDateTimeString()
-            )
+            // array(
+            //     'id' => 3,
+            //     'name'  =>'Department',
+            //     'role_id' => 3,
+            //     'username' => 'department',
+            //     'password' => Hash::make('password'),
+            //     'created_at' => now()->toDateTimeString(),
+            //     'updated_at' => now()->toDateTimeString()
+            // )
         );
         foreach ($users as $user) {
             $count = User::where("username",$user["username"])->count();
