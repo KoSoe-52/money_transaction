@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section("title","Create User -  M3 Car Spa")
+@section("title","အကောင့်စာရင်းသွင်း")
 @section('content')
 <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4  mx-auto">
     <h6 class="mb-0 text-uppercase text-primary" style="text-align:center">Create User Account</h6>

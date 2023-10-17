@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section("title","Create Purchase- M3 Car Spa")
+@section("title","စာရင်းသွင်းခြင်း")
 @section('content')
 <div class="gap-3 mb-4 row mt-3">
     <form  id="purchaseForm" method="POST" class="col-lg-8 col-xl-8 row" enctype="multipart/form-data">

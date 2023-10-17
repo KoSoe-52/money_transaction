@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section("title","အကောင့်များ")
+@section("title","အကောင့်အသေးစိတ်")
 @section('content')
 <div class="col-lg-4">
     <div class="card">

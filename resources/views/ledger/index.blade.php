@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section("title","အကောင့်များ")
+@section("title","ယနေ့ဝယ်ယူသည့်စာရင်း")
 @section('content')
 <div class="gap-3 mb-4 row mt-1">
     @if(Auth::user()->role_id == 2)
