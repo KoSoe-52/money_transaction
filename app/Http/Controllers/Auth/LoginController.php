@@ -85,6 +85,8 @@ class LoginController extends Controller
                 return redirect()->route('login')->with("status", "Incorrect username and password");
             }
         }
+        return redirect()->route('login')->with("status", "Incorrect username and password");
+
     }
     public function loginForm()
     {
