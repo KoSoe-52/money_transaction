@@ -25,7 +25,7 @@
                 <form method="POST" action="{{ route('mylogin') }}" >
                     @csrf
                     <div class="card-body p-md-3 text-center" style="width:350px">
-                        <h5 class="text-white">A Application Login</h5>
+                        <h5 class="text-white">AKN App Login</h5>
                         <div class="">
                             <img src="{{ asset('assets/images/logo.png') }}" class="mt-2" width="120" alt="" style="border-radius:50%" />
                         </div>
