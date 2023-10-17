@@ -51,8 +51,8 @@ class DatabaseSeeder extends Seeder
                 'id' => 1,
                 'name'  =>'Admin',
                 'role_id' => 1,
-                'username' => 'aungkhaingnyein',
-                'password' => Hash::make('aung22655'),
+                'username' => 'aungkhingnyein',
+                'password' => Hash::make('aung444701'),
                 'created_at' => now()->toDateTimeString(),
                 'updated_at' => now()->toDateTimeString()
             ),
@@ -60,8 +60,8 @@ class DatabaseSeeder extends Seeder
                 'id' => 2,
                 'name'  =>'Buyer',
                 'role_id' => 2,
-                'username' => 'buyer',
-                'password' => Hash::make('buy098!@#'),
+                'username' => 'konyein',
+                'password' => Hash::make('aung44470'),
                 'created_at' => now()->toDateTimeString(),
                 'updated_at' => now()->toDateTimeString()
             ),
