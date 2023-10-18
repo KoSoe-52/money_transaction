@@ -8,9 +8,10 @@
     <table class="table mb-0 table-hover">
         <thead class="table-light">
             <tr>
-                <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">#</th>
-                <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">အမျိုးအစား</th>
-                <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ကုန်ကျငွေ</th>
+                <th style="border-bottom:2px solid #000;border-top:2px solid #000;">#</th>
+                <th style="border-bottom:2px solid #000;border-top:2px solid #000;">အမျိုးအစား</th>
+                <th style="width:120px;max-width:120px;border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ကုန်ကျငွေ</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -20,14 +21,13 @@
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $data->title }} </td>
-                        <td style="text-align:right;border-bottom:#666">{{ number_format($data->price,2) }}</td>
+                        <td style="text-align:right">{{ number_format($data->price,2) }}</td>
                     </tr>
                 @endforeach
                 <tr>
                     <td></td>
-                    <td  style="text-align:center;font-weight:bold;">စုစုပေါင်းကုန်ကျငွေ</td>
-                    <td style="text-align:right">{{ number_format(array_sum($total),2) }}</td>
-                    
+                    <td style="text-align:center;font-weight:bold;">စုစုပေါင်း</td>
+                    <td  style="font-weight:bold;font-size:20px;text-align:right">{{ number_format(array_sum($total),2) }}</td>
                 </tr>
                 <tr>
                     <td></td>
