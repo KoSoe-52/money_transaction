@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\View;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf;
 use App\Models\User;
@@ -114,7 +116,17 @@ class LedgerController extends Controller
         $point = $totalPoint->point;
         $reprotDate =  date("d F, Y") ." ကုန်ကျငွေစာရင်း";
        return view("ledger.invoice",compact("ledgers","point","reprotDate"));
- 
+       // $pdf = new Dompdf();
+        // $pdf = PDF::loadView("ledger.print",compact("ledgers"));
+        // //$pdf->render();
+        // $pdf->stream("test.pdf");
+       // $pdf = PDF::loadView('ledger.print',compact("ledgers"));
+        //return $pdf->stream('result.pdf', array('Attachment'=>0));    
+        // $pdf  =  App::make('dompdf.wrapper');
+        // $view =  View::make('ledger.print')->render();
+        // $pdf->loadHTML($view);
+        // $pdf->stream();
+        // return $pdf->download('profile.pdf');
         
     }
     /**

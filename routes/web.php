@@ -32,3 +32,11 @@ Route::middleware(['admin'])->group(function () {
     Route::resource("categories",App\Http\Controllers\CategoryController::class);
     Route::post("/users/addMoney",[App\Http\Controllers\UserController::class,'addMoney'])->name("addMoney");
 });
+
+// Route::get('/hello', function (Codedge\Fpdf\Fpdf\Fpdf $fpdf) {
+//     $fpdf->AddPage();
+//     $fpdf->SetFont('Pyidaungsu', 'B', 18);
+//     $fpdf->Cell(50, 25, 'Hello ဟယ်လို!');
+//     $fpdf->Output();
+//     exit;
+// });
