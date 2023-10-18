@@ -5,6 +5,9 @@
     @if(Auth::user()->role_id == 2)
         <div class="col-lg-4 col-xl-4 mb-3 align-items-right text-align-end"><a href="{{ route('ledgers.create') }}" class="btn bg-light-success px-3  text-success"><i class="bx bx-dollar"></i>ကုန်ကျငွေသွင်းရန်</a></div>
     @endif
+    @if(Auth::user()->role_id == 1)
+        <div class="col-lg-4 col-xl-4 mb-3 align-items-right text-align-end"><a href="{{ route('print.daily') }}" target="_blank" class="btn bg-light-success px-3  text-success"><i class="bx bx-dollar"></i>ပရင့်ထုတ်ရန်</a></div>
+    @endif
 </div>
 <div class="col-12">
     <h3>ယနေ့ဝယ်ယူသည့်စာရင်း</h3>

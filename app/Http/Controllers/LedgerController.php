@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Dompdf\Dompdf;
 use App\Models\User;
 class LedgerController extends Controller
 {
@@ -103,7 +105,24 @@ class LedgerController extends Controller
             ]);
         }
     }
-
+    public function print()
+    {
+        date_default_timezone_set("Asia/Yangon");
+        $date = date("Y-m-d");
+        $ledgers = Ledger::where("date",$date)->get();
+        $totalPoint = User::find(2);
+        $point = $totalPoint->point;
+        $reprotDate =  date("d F, Y") ." ကုန်ကျငွေစာရင်း";
+        return view("ledger.invoice",compact("ledgers","point","reprotDate"));
+        //$pdf = PDF::loadView('ledger.invoice', ['ledgers' => $ledgers])->setOptions(['defaultFont' => 'Pyidaungsu']);
+        //$pdf = PDF::loadView('ledger.invoice', compact('ledgers'));
+        // $pdf = PDF::loadView('ledger.invoice',['ledgers' => $ledgers])->setOptions(['defaultFont' => 'sans-serif']);
+        // return $pdf->stream('invoice.pdf');
+        // $data['title']="မင်္ဂလာပါ";
+        // $pdf = mb_convert_encoding(\View::make('ledger.invoice', $data), 'HTML-ENTITIES', 'UTF-8');
+        // return PDF::loadHtml($pdf)->download('invoice.pdf');
+        
+    }
     /**
      * Display the specified resource.
      */

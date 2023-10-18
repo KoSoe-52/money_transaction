@@ -1,0 +1,12 @@
+{
+    "roboto": {
+        "normal": "C:\\laragon\\www\\transactionMoney\\storage\\fonts\/roboto_normal_7bc701b343c10631f60048716b96e4f7",
+        "500": "roboto_500_5774d6fb05eba3d096525f821dbe4137"
+    },
+    "boxicons": {
+        "normal": "boxicons_normal_d228bafe0ff0cfd4d2229c03f8ddfb46"
+    },
+    "lineicons": {
+        "normal": "lineicons_normal_f3b3aa60d16403b8c9d09d31cb021759"
+    }
+}

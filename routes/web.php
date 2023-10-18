@@ -25,11 +25,10 @@ Route::middleware(['auth'])->group(function () {
     // Route::get("/dashboard",[App\Http\Controllers\DashboardController::class,'index'])->name("dashboard");
     Route::resource("ledgers",App\Http\Controllers\LedgerController::class);
     Route::get("/users/{id}/profile",[App\Http\Controllers\UserController::class,'profile'])->name("users.profile");
-
+    Route::get("/print",[App\Http\Controllers\LedgerController::class,'print'])->name("print.daily");
 });
 Route::middleware(['admin'])->group(function () {
     Route::resource("users",App\Http\Controllers\UserController::class);
     Route::resource("categories",App\Http\Controllers\CategoryController::class);
     Route::post("/users/addMoney",[App\Http\Controllers\UserController::class,'addMoney'])->name("addMoney");
-
 });
