@@ -113,21 +113,8 @@ class LedgerController extends Controller
         $totalPoint = User::find(2);
         $point = $totalPoint->point;
         $reprotDate =  date("d F, Y") ." ကုန်ကျငွေစာရင်း";
-         // share data to view
-        $pdf = PDF::loadView('ledger.invoice', compact('ledgers'));
-        return $pdf->download('invoice.pdf');
-
-
-        // download PDF file with download method
-        //return $pdf->download('pdf_file.pdf');
-       // return view("ledger.invoice",compact("ledgers","point","reprotDate"));
-        //$pdf = PDF::loadView('ledger.invoice', ['ledgers' => $ledgers])->setOptions(['defaultFont' => 'Pyidaungsu']);
-        //$pdf = PDF::loadView('ledger.invoice', compact('ledgers'));
-        // $pdf = PDF::loadView('ledger.invoice',['ledgers' => $ledgers])->setOptions(['defaultFont' => 'sans-serif']);
-        // return $pdf->stream('invoice.pdf');
-        // $data['title']="မင်္ဂလာပါ";
-        // $pdf = mb_convert_encoding(\View::make('ledger.invoice', $data), 'HTML-ENTITIES', 'UTF-8');
-        // return PDF::loadHtml($pdf)->download('invoice.pdf');
+       return view("ledger.invoice",compact("ledgers","point","reprotDate"));
+ 
         
     }
     /**
