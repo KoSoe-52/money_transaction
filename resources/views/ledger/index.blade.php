@@ -30,7 +30,7 @@
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $data->title }} </td>
                         <td style="text-align:right">{{ number_format($data->price,2) }}</td>
-                        <td>
+                        <td style="text-align:center">
                             @if($data->image !="")
                                 <button class="btn btn-sm btn-info view-image" data-bs-toggle="modal" data-bs-target="#imageModal" data-id="{{$data->image}}"><i class="bx bx-eye"></i> View</button>
                             @else 
