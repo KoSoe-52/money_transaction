@@ -32,7 +32,7 @@
                 <tr>
                     <td></td>
                     <td  style="text-align:center;font-weight:bold;">လက်ကျန်ငွေစုစုပေါင်း</td>
-                    <td  style="text-align:right">{{ number_format($point,2) }}</td>
+                    <td  style="font-weight:bold;font-size:20px;text-align:right">{{ number_format($point,2) }}</td>
                 </tr>
             @else 
                 <tr>
