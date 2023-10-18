@@ -23,9 +23,9 @@
         <thead class="table-light">
             <tr>
                 <th>#</th>
-                <th>Date Time</th>
-                <th>Amount</th>
-                <th>Description</th>
+                <th>ရက်စွဲ/အချိန်</th>
+                <th>ငွေပမာဏ</th>
+                <th>မှတ်ချက်</th>
             </tr>
         </thead>
         <tbody>
