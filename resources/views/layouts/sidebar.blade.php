@@ -15,6 +15,15 @@
 		</a>
 	</li>
 	@endif
+	@if(Auth::user()->role_id == 2)
+	@php $id = Auth::user()->id @endphp
+	<li>
+		<a href="{{ route('users.profile',$id) }}">
+			<div class="parent-icon"><i class="bx bx-dollar text-success"></i></div>
+			<div class="menu-title">Balance</div>
+		</a>
+	</li>
+	@endif
 	<!-- <li>
 		<a href="#">
 			<div class="parent-icon"><i class="bx bx-user text-success"></i></div>
