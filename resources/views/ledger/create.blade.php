@@ -63,6 +63,15 @@
                             cache:false,
                             contentType:false,
                             processData:false,
+                            beforeSend: function() {
+                                swal.fire({
+                                    title: "<span style='color:black'>ဆောင်ရွက်နေပါသည်...ခဏစောင့်ပါ</span>",
+                                    width: 500,
+                                    color: '#716add',
+                                    showCancelButton: false,
+                                    showConfirmButton: false
+                                });
+                            },
                             success: function(response) {
                                 console.log(JSON.stringify(response))
                                 if(response.status === true)

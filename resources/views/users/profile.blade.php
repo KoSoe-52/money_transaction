@@ -8,7 +8,7 @@
                 <img src="{{ asset('assets/images/logo.png') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                 <div class="mt-3">
                     <h4>{{$user->username}}</h4>
-                    <p class="text-secondary mb-1">{{ $user->point }}</p>
+                    <h5 class="text-secondary mb-1 badge bg-info" style="font-size:20px">{{ number_format($user->point,2) }} MMK</h5>
 					@if(Auth::user()->role_id == 1)
                     	<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addMoney"><i class="bx bx-dollar"></i> ငွေသွင်း</button>
 					@endif
@@ -40,7 +40,7 @@
                 @endforeach
             @else 
                 <tr>
-                    <td colspan="3" style="text-align:center"> There is no transaction...</td>
+                    <td colspan="4" style="text-align:center"> There is no transaction...</td>
                 </tr>
             @endif
         </tbody>

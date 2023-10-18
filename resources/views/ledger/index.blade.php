@@ -16,10 +16,10 @@
     <table class="table mb-0 table-hover">
         <thead class="table-light">
             <tr>
-                <th>#</th>
-                <th>အမျိုးအစား</th>
-                <th>ကုန်ကျငွေ</th>
-                <th>ငွေသွင်းချလံ</th>
+                <th style="border-bottom:2px solid #000;border-top:2px solid #000;">#</th>
+                <th style="border-bottom:2px solid #000;border-top:2px solid #000;">အမျိုးအစား</th>
+                <th style="width:120px;max-width:120px;border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ကုန်ကျငွေ</th>
+                <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ငွေသွင်းချလံ</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $data->title }} </td>
-                        <td>{{ $data->price }}</td>
+                        <td style="text-align:right">{{ number_format($data->price,2) }}</td>
                         <td>
                             @if($data->image !="")
                                 <button class="btn btn-sm btn-info view-image" data-bs-toggle="modal" data-bs-target="#imageModal" data-id="{{$data->image}}"><i class="bx bx-eye"></i> View</button>
@@ -41,7 +41,8 @@
                 @endforeach
                 <tr>
                     <td colspan="2" style="text-align:center;font-weight:bold;">စုစုပေါင်း</td>
-                    <td colspan="2">{{ array_sum($total) }}</td>
+                    <td  style="font-weight:bold;font-size:20px;text-align:right">{{ number_format(array_sum($total),2) }}</td>
+                    <td></td>
                 </tr>
             @else 
                 <tr>
