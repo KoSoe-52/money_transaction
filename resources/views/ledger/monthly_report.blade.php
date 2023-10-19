@@ -20,7 +20,7 @@
                     @php $total[] = $data->price @endphp
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $data->date }} </td>
+                        <td><a href="{{ route('ledgers.show',$data->date) }}">{{ $data->date }} </a></td>
                         <td style="text-align:right">{{ number_format($data->price,2) }}</td>
                     </tr>
                 @endforeach

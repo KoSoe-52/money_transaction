@@ -1,16 +1,16 @@
 @extends('layouts.master')
-@section("title","ယနေ့ဝယ်ယူသည့်စာရင်း")
+@section("title",$titleDate)
 @section('content')
 <div class="gap-3 mb-4 row mt-1">
     @if(Auth::user()->role_id == 2)
         <div class="col-lg-4 col-xl-4 mb-3 align-items-right text-align-end"><a href="{{ route('ledgers.create') }}" class="btn bg-light-success px-3  text-success"><i class="bx bx-dollar"></i>ကုန်ကျငွေသွင်းရန်</a></div>
     @endif
     @if(Auth::user()->role_id == 1)
-        <div class="col-lg-4 col-xl-4 mb-3 align-items-right text-align-end"><a href="{{ route('print.daily') }}" target="_blank" class="btn bg-light-success px-3  text-success"><i class="bx bx-dollar"></i>ပရင့်ထုတ်ရန်</a></div>
+        <div class="col-lg-4 col-xl-4 mb-3 align-items-right text-align-end"><a href="{{ route('print.daily',$date) }}" target="_blank" class="btn bg-light-success px-3  text-success"><i class="bx bx-dollar"></i>ပရင့်ထုတ်ရန်</a></div>
     @endif
 </div>
 <div class="col-12">
-    <h3>ယနေ့ဝယ်ယူသည့်စာရင်း</h3>
+    <h3>{{$titleDate}}</h3>
 </div>
 <div class="table-responsive">
     <table class="table mb-0 table-hover">

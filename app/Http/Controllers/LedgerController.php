@@ -23,13 +23,16 @@ class LedgerController extends Controller
     {
         date_default_timezone_set("Asia/Yangon");
         $date = date("Y-m-d");
+        $titleDate = date("d F, Y")." ဝယ်ယူသည့်စာရင်း";
         $ledgers = Ledger::where("date",$date)->get();
-        return view("ledger.index",compact("ledgers"));
+        return view("ledger.index",compact("ledgers","titleDate","date"));
     }
+    
     public function monthReport(Request $request)
     {
          $monthly_report = Ledger::select("ledgers.date",DB::raw("SUM(price) as price"))
-                            ->groupBy(["ledgers.date"])  
+                            ->groupBy(["ledgers.date"])
+                            ->orderBy("date","DESC")  
                             ->paginate(30);
         return view("ledger.monthly_report",compact("monthly_report"));
     }
@@ -113,10 +116,10 @@ class LedgerController extends Controller
             ]);
         }
     }
-    public function print()
+    public function print($date)
     {
         date_default_timezone_set("Asia/Yangon");
-        $date = date("Y-m-d");
+        $date = date("Y-m-d",strtotime($date));
         $ledgers = Ledger::where("date",$date)->get();
         $totalPoint = User::find(2);
         $point = $totalPoint->point;
@@ -135,9 +138,13 @@ class LedgerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Ledger $ledger)
+    public function show($date)
     {
-        //
+        date_default_timezone_set("Asia/Yangon");
+        $date = date("Y-m-d",strtotime($date));
+        $titleDate = date("d F, Y",strtotime($date)) ." ဝယ်ယူသည့်စာရင်း";
+        $ledgers = Ledger::where("date",$date)->get();
+        return view("ledger.index",compact("ledgers","titleDate","date"));
     }
 
     /**
