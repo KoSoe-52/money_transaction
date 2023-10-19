@@ -37,9 +37,9 @@
 		</a>
 	</li> -->
 	<li>
-		<a href="#">
+		<a href="{{ route('monthly.report') }}">
 			<div class="parent-icon"><i class="bx bx-repost text-success"></i></div>
-			<div class="menu-title">Monthly Transactions</div>
+			<div class="menu-title">Monthly Report</div>
 		</a>
 	</li>
 	<li>

@@ -26,7 +26,13 @@ class LedgerController extends Controller
         $ledgers = Ledger::where("date",$date)->get();
         return view("ledger.index",compact("ledgers"));
     }
-
+    public function monthReport(Request $request)
+    {
+         $monthly_report = Ledger::select("ledgers.date",DB::raw("SUM(price) as price"))
+                            ->groupBy(["ledgers.date"])  
+                            ->paginate(30);
+        return view("ledger.monthly_report",compact("monthly_report"));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -116,17 +122,14 @@ class LedgerController extends Controller
         $point = $totalPoint->point;
         $reprotDate =  date("d F, Y") ." ကုန်ကျငွေစာရင်း";
        return view("ledger.invoice",compact("ledgers","point","reprotDate"));
-       // $pdf = new Dompdf();
-        // $pdf = PDF::loadView("ledger.print",compact("ledgers"));
-        // //$pdf->render();
-        // $pdf->stream("test.pdf");
-       // $pdf = PDF::loadView('ledger.print',compact("ledgers"));
-        //return $pdf->stream('result.pdf', array('Attachment'=>0));    
-        // $pdf  =  App::make('dompdf.wrapper');
-        // $view =  View::make('ledger.print')->render();
-        // $pdf->loadHTML($view);
-        // $pdf->stream();
-        // return $pdf->download('profile.pdf');
+       // Create a PDF using Dompdf
+        //$pdf = PDF::loadView('ledger.invoice', compact("ledgers","point","reprotDate"));
+        // $pdf = PDF::loadView('ledger.print');
+
+        // // Set the paper size and orientation
+        // $pdf->setPaper('A4', 'portrait');
+        // // Stream the PDF to the browser
+        // return $pdf->stream('document.pdf');
         
     }
     /**

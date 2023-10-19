@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource("ledgers",App\Http\Controllers\LedgerController::class);
     Route::get("/users/{id}/profile",[App\Http\Controllers\UserController::class,'profile'])->name("users.profile");
     Route::get("/print",[App\Http\Controllers\LedgerController::class,'print'])->name("print.daily");
+    Route::get("monthly_report",[App\Http\Controllers\LedgerController::class,'monthReport'])->name("monthly.report");
 });
 Route::middleware(['admin'])->group(function () {
     Route::resource("users",App\Http\Controllers\UserController::class);
@@ -33,10 +34,6 @@ Route::middleware(['admin'])->group(function () {
     Route::post("/users/addMoney",[App\Http\Controllers\UserController::class,'addMoney'])->name("addMoney");
 });
 
-// Route::get('/hello', function (Codedge\Fpdf\Fpdf\Fpdf $fpdf) {
-//     $fpdf->AddPage();
-//     $fpdf->SetFont('Pyidaungsu', 'B', 18);
-//     $fpdf->Cell(50, 25, 'Hello ဟယ်လို!');
-//     $fpdf->Output();
-//     exit;
-// });
+Route::get('/hello', function () {
+   return view("ledger.print");
+});

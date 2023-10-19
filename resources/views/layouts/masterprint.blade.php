@@ -12,6 +12,11 @@
 	<link href="{{asset('assets/css/app.css')}}" rel="stylesheet">
 	<link href="{{asset('assets/css/icons.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('assets/css/print.css') }}" media="print" />
+	<style>
+		 body {
+        font-family: 'Pyidaungsu', Arial, sans-serif;
+    }
+	</style>
 	<!-- Bootstrap JS -->
 	<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
     <title>@yield('title')</title>

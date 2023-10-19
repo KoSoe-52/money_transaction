@@ -45,7 +45,8 @@ return array(
          * Times-Roman, Times-Bold, Times-BoldItalic, Times-Italic,
          * Symbol, ZapfDingbats.
          */
-        "font_dir" => storage_path('fonts'), // advised by dompdf (https://github.com/dompdf/dompdf/pull/782)
+      //  "font_dir" => storage_path('fonts'), // advised by dompdf (https://github.com/dompdf/dompdf/pull/782)
+      'font_dir' => storage_path('fonts'), // Path to Unicode fonts
 
         /**
          * The location of the DOMPDF font cache directory
@@ -186,8 +187,10 @@ return array(
          * Used if no suitable fonts can be found. This must exist in the font folder.
          * @var string
          */
-        "default_font" => "serif",
-
+        "default_font" => "Pyidaungsu",
+        'isHtml5ParserEnabled' => true, // Enable HTML5 parsing
+        'isPhpEnabled' => true, // Enable PHP support
+        'isFontSubsettingEnabled' => true, // Enable font subsetting for smaller file sizes
         /**
          * Image DPI setting
          *
