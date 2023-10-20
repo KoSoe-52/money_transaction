@@ -78,8 +78,10 @@
 				}
 			});
             $(document).on("click",".view-image",function(){
+
                 var image = $(this).data("id");
-                var img = "<img src='"+image+"' style='width:100%;height:100%;object-fit:cover;'>";
+                var imgLink ="{{ url('') }}"; // the document of project folder
+                var img = "<img src='"+imgLink+"/"+image+"' style='width:100%;height:100%;object-fit:cover;'>";
                 $(".image-area").html(img);
             })
         });

@@ -23,7 +23,8 @@ Auth::routes([
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
     // Route::get("/dashboard",[App\Http\Controllers\DashboardController::class,'index'])->name("dashboard");
-    Route::resource("ledgers",App\Http\Controllers\LedgerController::class);
+   Route::resource("ledgers",App\Http\Controllers\LedgerController::class);
+
     Route::get("/users/{id}/profile",[App\Http\Controllers\UserController::class,'profile'])->name("users.profile");
     Route::get("/print/{date}",[App\Http\Controllers\LedgerController::class,'print'])->name("print.daily");
     Route::get("monthly_report",[App\Http\Controllers\LedgerController::class,'monthReport'])->name("monthly.report");
