@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Dompdf\Dompdf;
+//use Barryvdh\DomPDF\Facade\Pdf;
+//use Dompdf\Dompdf;
 use App\Models\User;
 class LedgerController extends Controller
 {
