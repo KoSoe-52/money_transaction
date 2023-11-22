@@ -36,8 +36,8 @@
         </tbody>
     </table>
     <div class="row mt-3">
-        <div class="col-xl-8">{{ $monthly_report->links() }} </span></div>
-        <div class="col-xl-4" style="text-align:right">Total ( {{$monthly_report->total() }} ) number of rows</div>
+        <div class="col-xl-8"></span></div>
+        <div class="col-xl-4" style="text-align:right">Total ( {{ count($monthly_report) }} ) number of rows</div>
     </div>
 </div>
 
