@@ -34,7 +34,7 @@ class LedgerController extends Controller
          $monthly_report = Ledger::select("ledgers.date",DB::raw("SUM(price) as price"))
                             ->groupBy(["ledgers.date"])
                             ->orderBy("date","DESC")  
-                            ->paginate(30);
+                            ->get();
         return view("ledger.monthly_report",compact("monthly_report"));
     }
     /**
