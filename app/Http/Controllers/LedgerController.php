@@ -25,7 +25,8 @@ class LedgerController extends Controller
         $date = date("Y-m-d");
         $titleDate = date("d F, Y")." ဝယ်ယူသည့်စာရင်း";
         $ledgers = Ledger::where("date",$date)->get();
-        return view("ledger.index",compact("ledgers","titleDate","date"));
+        $delete= true;
+        return view("ledger.index",compact("ledgers","titleDate","date","delete"));
     }
     
     public function monthReport(Request $request)
@@ -144,7 +145,8 @@ class LedgerController extends Controller
         $date = date("Y-m-d",strtotime($date));
         $titleDate = date("d F, Y",strtotime($date)) ." ဝယ်ယူသည့်စာရင်း";
         $ledgers = Ledger::where("date",$date)->get();
-        return view("ledger.index",compact("ledgers","titleDate","date"));
+        $delete = false;
+        return view("ledger.index",compact("ledgers","titleDate","date","delete"));
     }
 
     /**
@@ -166,8 +168,34 @@ class LedgerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(Ledger $ledger)
     {
-        //
+        DB::beginTransaction();
+        try{
+            $data = User::find(Auth::user()->id);
+            /**
+             * သုံးတဲ့ ပိုက်ဆံကို users table က point ထဲကို ပြန်ပေါင်းပေးရမည်
+             */
+            $data->point = $data->point + $ledger->price;
+            $data->update();
+            /**
+             * transaction delete
+             */
+            $ledger->delete();
+        }catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                "status"  => false,
+                "msg"     => "မှားနေပါသည်",
+                "data" => []
+            ],500);
+        }
+        DB::commit();
+        return response()->json([
+            "status"  => true,
+            "msg"     => "စာရင်းပယ်ဖျက်ခြင်းအောင်မြင်ပါသည်",
+            "data" => []
+        ]);
     }
 }

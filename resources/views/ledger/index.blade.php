@@ -20,6 +20,9 @@
                 <th style="border-bottom:2px solid #000;border-top:2px solid #000;">အမျိုးအစား</th>
                 <th style="width:120px;max-width:120px;border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ကုန်ကျငွေ</th>
                 <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ငွေသွင်းချလံ</th>
+                @if($delete == true)
+                <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -37,16 +40,22 @@
                                 -
                             @endif
                         </td>
+                        @if($delete == true)
+                            <td style="text-align:center">
+                                <button class="btn btn-sm btn-danger delete-btn" data-id="{{ $data->id }}">Delete</button>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
                 <tr>
                     <td colspan="2" style="text-align:center;font-weight:bold;">စုစုပေါင်း</td>
                     <td  style="font-weight:bold;font-size:20px;text-align:right">{{ number_format(array_sum($total),2) }}</td>
                     <td></td>
+                    <td></td>
                 </tr>
             @else 
                 <tr>
-                    <td colspan="4" style="text-align:center"> There is no user</td>
+                    <td colspan="5" style="text-align:center"> No data available...</td>
                 </tr>
             @endif
         </tbody>
@@ -83,7 +92,65 @@
                 var imgLink ="{{ url('') }}"; // the document of project folder
                 var img = "<img src='"+imgLink+"/"+image+"' style='width:100%;height:100%;object-fit:cover;'>";
                 $(".image-area").html(img);
-            })
+            });
+            $(document).on("click",".delete-btn",function(){
+				var id = $(this).data("id");
+				Swal.fire({
+					  title: 'ပယ်ဖျက်မည်မှာသေချာလား?',
+                      showCancelButton: true,
+                      confirmButtonText: 'ဖျက်မည်',
+				}).then((result) => {
+					if (result.isConfirmed) {
+						var id = $(this).data("id");
+						var url = "{{ route('ledgers.destroy', ":id") }}";
+							url = url.replace(':id', id);
+							$.ajax({
+								url: url,
+								type: "DELETE",
+								data:  [],
+								cache:false,
+								contentType:false,
+								processData:false,
+								success: function(response) {
+								console.log(JSON.stringify(response))
+									if(response.status === true)
+									{
+										Swal.fire({
+												title: response.msg,
+												icon:'success',
+												width: 300,
+												color: '#716add',
+												showCancelButton: false,
+												showConfirmButton: false,
+											});
+										setInterval(() => {
+											window.location.reload();
+										}, 1000);
+										
+									}else
+									{
+										Swal.fire({
+											title: response.msg,
+											width: 300,
+											color: '#716add',
+											showCancelButton: false,
+											showConfirmButton: false
+										});
+									}
+								},error: function (request, status, error) {
+									Swal.fire({
+											title: error,
+											icon:'error',
+											width: 300,
+											color: '#716add',
+											showCancelButton: false,
+											showConfirmButton: false
+										});
+								}
+							});
+					}
+				});
+			});
         });
     </script>
 @endsection
