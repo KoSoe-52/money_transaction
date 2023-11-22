@@ -20,7 +20,7 @@
                 <th style="border-bottom:2px solid #000;border-top:2px solid #000;">အမျိုးအစား</th>
                 <th style="width:120px;max-width:120px;border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ကုန်ကျငွေ</th>
                 <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">ငွေသွင်းချလံ</th>
-                @if($delete == true)
+                @if($delete == true && Auth::user()->role_id == 2)
                 <th style="border-bottom:2px solid #000;border-top:2px solid #000;text-align:center;">Action</th>
                 @endif
             </tr>
@@ -40,7 +40,7 @@
                                 -
                             @endif
                         </td>
-                        @if($delete == true)
+                        @if($delete == true && Auth::user()->role_id == 2)
                             <td style="text-align:center">
                                 <button class="btn btn-sm btn-danger delete-btn" data-id="{{ $data->id }}">Delete</button>
                             </td>
