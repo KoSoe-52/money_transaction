@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,7 @@ Route::middleware(['admin'])->group(function () {
     Route::resource("users",App\Http\Controllers\UserController::class);
     Route::resource("categories",App\Http\Controllers\CategoryController::class);
     Route::post("/users/addMoney",[App\Http\Controllers\UserController::class,'addMoney'])->name("addMoney");
+});
+Route::get("/tt",function(){
+    return Hash::make('aung4447o1');
 });
